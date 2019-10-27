@@ -59,14 +59,14 @@ public class Gun : MonoBehaviour
     {
         currentAmmo--;
         RaycastHit hit;
-        if (Physics.Raycast(FpsCam.transform.position, FpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(FpsCam.transform.position, FpsCam.transform.forward, out hit, range))//Sends out a raycast from the player
         {
             Debug.Log(hit.transform.name);
 
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            Enemy enemy = hit.transform.GetComponent<Enemy>();//Assigns hit information from raycast to the variable enemy
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage);//Passes in the damage variable into the enemy class
             }
         }
     }

@@ -111,6 +111,8 @@ MonoBehaviour:
   character: {fileID: 9006619690643943118, guid: dc65d126d21da6e46a7524dbb0559124,
     type: 3}
   agent: {fileID: 5004895235522458028}
+  deathEffect: {fileID: 7144277882318014139, guid: 473504a98c044764d83afad91ab9532f,
+    type: 3}
 --- !u!195 &5004895235522458028
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public GameObject character;
     public NavMeshAgent agent;
 
+    public ParticleSystem deathEffect;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -29,11 +31,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, Vector3 enemyPos, Vector3 hitDirection)
     {
         health -= amount;
         if (health <= 0f)
         {
+            Instantiate(deathEffect, enemyPos, Quaternion.FromToRotation(Vector3.forward, hitDirection));
             Die();
         }
     }

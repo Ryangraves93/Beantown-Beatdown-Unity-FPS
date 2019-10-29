@@ -61,12 +61,13 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(FpsCam.transform.position, FpsCam.transform.forward, out hit, range))//Sends out a raycast from the player
         {
-            Debug.Log(hit.transform.name);
-
+            
+            Vector3 enemyPos = hit.transform.position;
+            Debug.Log(enemyPos);
             Enemy enemy = hit.transform.GetComponent<Enemy>();//Assigns hit information from raycast to the variable enemy
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);//Passes in the damage variable into the enemy class
+                enemy.TakeDamage(damage,enemyPos,transform.forward);//Passes in the damage variable into the enemy class
             }
         }
     }

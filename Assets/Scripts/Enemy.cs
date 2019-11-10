@@ -5,34 +5,32 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 50f;
-    public GameObject character;
+    public float health = 1;
+    public Transform character;
     public NavMeshAgent agent;
 
+    
+    
     public ParticleSystem deathEffect;
 
     private void Start()
     {
+      
         agent = GetComponent<NavMeshAgent>();
+        var mask = LayerMask.GetMask(new[] { "Actors" });
+        
+        Debug.Log("Agent destination is " + agent.destination);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        var mask = LayerMask.GetMask(new[] { "Actors" });
-        var maxDistance = Vector3.Distance(this.transform.position, character.transform.position);
-        var directionVector = character.transform.position - this.transform.position;
-        //Debug.Log(directionVector);
-
-        if (Physics.Raycast(this.transform.position, directionVector, maxDistance, mask))
-        {
-            agent.destination = character.transform.position;
-             Debug.Log("Working");
-            
-        }
+        //agent.destination = character.position;
+        agent.SetDestination(character.position);
     }
 
     public void TakeDamage(float amount, Vector3 enemyPos, Vector3 hitDirection)
     {
+        //rb.AddForceAtPosition(Vector3.forward * 10, hitDirection);
         health -= amount;
         if (health <= 0f)
         {

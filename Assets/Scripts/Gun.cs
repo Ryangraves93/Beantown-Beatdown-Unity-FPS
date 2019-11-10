@@ -25,7 +25,7 @@ public class Gun : MonoBehaviour
     private void OnEnable()
     {
         isReloading = false;
-        animator.SetBool("Reloading", false);
+        //animator.SetBool("Reloading", false);
     }
     void Update()
     {
@@ -37,10 +37,10 @@ public class Gun : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
-            muzzleFlash.Play();
+            //muzzleFlash.Play();
             Shoot();
         }
     }
@@ -48,9 +48,9 @@ public class Gun : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
-        animator.SetBool("Reloading", true);
+        //animator.SetBool("Reloading", true);
         yield return new WaitForSeconds(reloadTime);
-        animator.SetBool("Reloading", false);
+        //animator.SetBool("Reloading", false);
 
         currentAmmo = maxAmmo;
         isReloading = false;

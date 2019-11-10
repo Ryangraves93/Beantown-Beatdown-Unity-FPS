@@ -511,9 +511,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 906845446}
+  player: {fileID: 0}
   enemyCount: 20
-  xPos: 0
-  zPos: 0
+  yPos: 0
+  xPos: 5
+  zPos: 20
 --- !u!4 &1469508691
 Transform:
   m_ObjectHideFlags: 0

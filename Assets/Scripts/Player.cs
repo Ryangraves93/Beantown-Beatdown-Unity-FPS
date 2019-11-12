@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : LivingEntity
 {
 
     GunController gunController;
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         gunController = GetComponent<GunController>();
     }
 

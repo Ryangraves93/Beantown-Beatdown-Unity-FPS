@@ -45,6 +45,15 @@ public class Enemy : LivingEntity
         }
     }
 
+    public override void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
+    {
+        if (damage >= health)
+        {
+            Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)) as GameObject, deathEffect.startLifetime);
+        }
+        base.TakeHit(damage, hitPoint, hitDirection);
+    }
+
     void OnTargetDeath()
     {
         hasTarget = false;
@@ -77,7 +86,7 @@ public class Enemy : LivingEntity
         Vector3 attackPosition = target.position - dirToTarget * (enemyCollisionRadius);
     
 
-        float attackSpeed = 3;
+        float attackSpeed = 2;
         float percent = 0;
 
         bool hasAppliedDamage = false;

@@ -13,6 +13,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected virtual void Start ()
     {
         health = startingHealth;
+        Cursor.visible = false;
     }
     public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection) {
         TakeDamage(damage);
@@ -34,6 +35,8 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             OnDeath();
         }
+        transform.DetachChildren();
         GameObject.Destroy(gameObject);
+        Cursor.visible = true;
     }
 }

@@ -21,6 +21,7 @@ public class Projectile : MonoBehaviour
     public void SetSpeed(float newSpeed) {
         speed = newSpeed;
     }
+  
     void Update()
     {
         float moveDistance = speed * Time.deltaTime;
@@ -46,7 +47,7 @@ public class Projectile : MonoBehaviour
         if (damageableObject != null)
         {
             damageableObject.TakeHit(damage, hitPoint, transform.forward);
-        }
+        }   
         GameObject.Destroy(gameObject);
     }
 }

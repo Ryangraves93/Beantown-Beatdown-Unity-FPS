@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 24394212984666610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.32955605, y: 8.225339, z: -15.6305}
-  m_LocalScale: {x: 0.002, y: 0.02, z: 0.2}
+  m_LocalScale: {x: 0.03, y: 0.02, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e74f4bf6a9707478d88f6163345ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 500
   collisionMask:
     serializedVersion: 2
     m_Bits: 2048
+  rb: {fileID: -1848507310980868380, guid: e332982425ee2ec48b168979bb7b43f5, type: 3}

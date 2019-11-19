@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class EnemySpawner : MonoBehaviour
     public Wave[] waves;
     public Enemy enemy;
 
-    public GameObject waveUI;
+    public TextMeshProUGUI waveUI;
     Text waveText;
 
     public Transform spawnPosition;
+    public Transform spawnPosition2;
+    Vector3 spawnerLocation;
 
     Wave currentWave;
     int currentWaveNumber;
@@ -21,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     int enemiesRemainingAlive;
     float nextSpawnTime;
 
-   
+    bool spawner1 = true;
 
     public event System.Action<int> OnNewWave;
 
@@ -30,14 +33,29 @@ public class EnemySpawner : MonoBehaviour
         waveText = waveUI.GetComponentInChildren<Text>();
         NextWave();
     }
+    
     private void Update()
     {
         if (enemiesRemainingToSpawn > 0 && Time.time > nextSpawnTime)
         {
+            if (spawner1 == true)
+            {
+                Debug.Log(spawner1 + "if statement");
+                spawnerLocation.Set(spawnPosition.position.x, spawnPosition.position.y, spawnPosition.position.z);
+                spawner1 = false;
+             }
+            else 
+            {
+                Debug.Log(spawner1 + "else statement");
+                spawnerLocation.Set(spawnPosition2.position.x, spawnPosition2.position.y, spawnPosition2.position.z);
+                spawner1 = true;
+            }
+            spawnerLocation.x += Random.Range(-5, 5);
             enemiesRemainingToSpawn--;
             nextSpawnTime = Time.time + currentWave.timeBetweenSpawns;
-            Enemy spawnedEnemy = Instantiate(enemy, new Vector3 (Random.Range(spawnPosition.position.x, spawnPosition.position.x + 5),0,spawnPosition.position.z), Quaternion.identity) as Enemy;
+            Enemy spawnedEnemy = Instantiate(enemy,spawnerLocation, Quaternion.identity) as Enemy;
             spawnedEnemy.OnDeath += OnEnemyDeath;
+            spawnedEnemy.SetChracteristics(currentWave.hitsToKillPlayer, currentWave.enemyHealth);
         }
     }
 
@@ -72,9 +90,9 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator WaveUI(int waveNumber)
     {
         waveNumber = waveNumber + 1;
-        waveText.text = "Wave Number - " + waveNumber.ToString();
+        waveUI.text = "Wave Number - " + waveNumber.ToString();
         yield return new WaitForSeconds(2f);
-        waveText.text = "";
+        waveUI.text = "";
     }
 
     [System.Serializable]
@@ -82,6 +100,9 @@ public class EnemySpawner : MonoBehaviour
     {
         public int enemyCount;
         public float timeBetweenSpawns;
+        public int hitsToKillPlayer;
+        public float enemyHealth;
+
     }
     
 

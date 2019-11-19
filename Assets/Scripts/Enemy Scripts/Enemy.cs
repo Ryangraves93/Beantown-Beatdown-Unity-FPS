@@ -45,6 +45,17 @@ public class Enemy : LivingEntity
         }
     }
 
+    public void SetChracteristics(int hitsToKillPlayer, float enemyHealth)
+    {
+    
+
+        if (hasTarget)
+        {
+            damage = hitsToKillPlayer;
+        }
+
+        startingHealth = enemyHealth;
+    }
     public override void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
     {
         if (damage >= health)

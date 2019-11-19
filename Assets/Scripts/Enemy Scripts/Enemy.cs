@@ -9,7 +9,7 @@ public class Enemy : LivingEntity
     public enum State { Idle, Chasing, Attacking};
     State currentState;
 
-    //public float health = 1;
+
     Transform target;
     LivingEntity targetEntitiy;
     public NavMeshAgent agent;

@@ -25,17 +25,24 @@ public class EnemySpawner : MonoBehaviour
     float nextSpawnTime;
 
     bool spawner1 = true;
+    bool startGameText = false;
 
     public event System.Action<int> OnNewWave;
 
     private void Start()
     {
         waveText = waveUI.GetComponentInChildren<Text>();
-        NextWave();
-    }
+        StartCoroutine(StartGameText());
+       
+       }
     
     private void Update()
     {
+        if (startGameText == true)
+        {
+            NextWave();
+        }
+
         if (enemiesRemainingToSpawn > 0 && Time.time > nextSpawnTime)
         {
             if (spawner1 == true)
@@ -71,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
     void NextWave()
     {
+        startGameText = false;
         StartCoroutine(WaveUI(currentWaveNumber));
         currentWaveNumber++;
         if (currentWaveNumber - 1 < waves.Length)
@@ -85,6 +93,14 @@ public class EnemySpawner : MonoBehaviour
                 OnNewWave(currentWaveNumber);
             }
         }
+    }
+    IEnumerator StartGameText()
+    {
+        Debug.Log("Working");
+        waveUI.text = "Defend Beantown from the invaders!";
+        yield return new WaitForSeconds(3f);
+        waveUI.text = "";
+        startGameText = true;
     }
 
     IEnumerator WaveUI(int waveNumber)

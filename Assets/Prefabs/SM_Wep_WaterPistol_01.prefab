@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8593137033807059364}
   m_Layer: 0
   m_Name: SM_Wep_WaterPistol_01
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,6 +113,9 @@ MonoBehaviour:
     type: 3}
   msBetweenShots: 400
   muzzleVelocity: 60
+  maxAmmo: 6
+  currentAmmo: 6
+  reloadTime: 1
 --- !u!1 &1171266974439338
 GameObject:
   m_ObjectHideFlags: 0

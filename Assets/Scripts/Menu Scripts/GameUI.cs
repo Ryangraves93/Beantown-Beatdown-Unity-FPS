@@ -11,6 +11,9 @@ public class GameUI : MonoBehaviour
     public Image FadePlan;
     public GameObject gameOverUI;
     public TextMeshProUGUI playerHealth;
+    public TextMeshProUGUI playerAmmo;
+
+    public GunScript gunScript;
 
 
     bool dead = false;
@@ -18,7 +21,7 @@ public class GameUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gunScript = GetComponent<GunScript>();
         FindObjectOfType<Player>().OnDeath += OnGameOver;
     }
 
@@ -32,7 +35,7 @@ public class GameUI : MonoBehaviour
                 StartNewGame();
             }  
         }
-        playerHealthUI();
+        playerUI();
 
     }
     void OnGameOver()
@@ -57,13 +60,14 @@ public class GameUI : MonoBehaviour
         }
 
     }
-    public void playerHealthUI()
+    public void playerUI()
     {
         if (dead == true)
         {
             playerHealth.text = "";
         }
         playerHealth.text = "Health - " + LivingEntity.FindObjectOfType<Player>().health.ToString();
+        playerAmmo.text = "Ammo" + " - " + GunScript.FindObjectOfType<GunScript>().currentAmmo.ToString() + " / " + GunScript.FindObjectOfType<GunScript>().maxAmmo.ToString(); 
     }
 
     public void StartNewGame()

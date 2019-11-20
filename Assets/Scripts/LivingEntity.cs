@@ -36,7 +36,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             OnDeath();
         }
-        transform.DetachChildren();
+        if (FindObjectOfType<Player>().dead)
+        {
+            transform.DetachChildren();
+        }
         GameObject.Destroy(gameObject);   
     }
 }

@@ -5,14 +5,37 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     public Transform weaponHold;
-    public GunScript startingGun;
+    public GunScript smallGun;
+    public GunScript mediumGun;
+    public GunScript heavyGun;
     GunScript equippedGun;
 
     private void Start()
     {
-        if (startingGun != null)
+        if (smallGun != null)
         {
-            EquipGun(startingGun);
+            EquipGun(smallGun);
+        }
+
+    }
+
+    private void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log("Hello");
+            EquipGun(smallGun);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Debug.Log("Hello");
+            EquipGun(mediumGun);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Debug.Log("Hello");
+            EquipGun(heavyGun);
         }
     }
     public void EquipGun(GunScript gunToEquip)

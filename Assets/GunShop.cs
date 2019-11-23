@@ -40,21 +40,21 @@ public class GunShop : MonoBehaviour
         }
         if (gameObject.gameObject.CompareTag("SmallGun"))
         {
-            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase small gun - E"; 
+            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase small gun - E" + " " + gunValue; 
             smallGun = true;
-            Debug.Log(smallGun + "smallGun");
+   
         }
         if (gameObject.gameObject.CompareTag("MediumGun"))
         {
-            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase Medium gun - E";
+            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase Medium gun -" + " " + gunValue;
             mediumGun = true;
-            Debug.Log(mediumGun + "mediumGun");
+      
         }
         if (gameObject.gameObject.CompareTag("HeavyGun"))
         {
-            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase Heavy gun - E";
+            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase Heavy gun - " + " " + gunValue;
             heavyGun = true;
-            Debug.Log(heavyGun + "heavyGun");
+        
         }
 
     }
@@ -64,6 +64,7 @@ public class GunShop : MonoBehaviour
         {
             purchaseText.SetActive(false);
             playerInRange = false;
+            smallGun = false;
             mediumGun = false;
             heavyGun = false;
         }
@@ -81,27 +82,33 @@ public class GunShop : MonoBehaviour
 
     void purchaseWeapon()
     {
+        gunController.gunToBeEquipped = false;
+        Debug.Log(gunController.gunToBeEquipped + "Guntobequ");
         if (smallGun == true)
         {
-            gunController.smallGunPurchase = true;
+           
+            gunController.smallGunPurchased = true;
         }
         if (mediumGun == true)
         {
             {
-                Debug.Log("Purchased medium");
+     
                 gunController.mediumGunPurchased = true;
+                
             }
         }
 
         if (heavyGun == true)
             {
-                Debug.Log("Purchased heavy");
+            
+          
                 gunController.heavyGunPurchased = true;
             }
             purchased = true;
             purchaseText.SetActive(false);
             GameObject.Destroy(gun);
             LivingEntity.score -= gunValue;
-        }
+           
+    }
     
 }

@@ -8,13 +8,16 @@ public class GunController : MonoBehaviour
     public GunScript smallGun;
     public GunScript mediumGun;
     public GunScript heavyGun;
+    //public GunScript equippedGun;
     public GunScript equippedGun;
 
-    public bool smallGunPurchase = false;
+    public bool smallGunPurchased = false;
     public bool mediumGunPurchased = false;
     public bool heavyGunPurchased = false;
     bool MediumGunEquipped = true;
     bool HeavyGunEquipped = true;
+
+    public bool gunToBeEquipped;
     
     private void Start()
     {
@@ -29,7 +32,7 @@ public class GunController : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && smallGunPurchase == true)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && smallGunPurchased == true || (smallGunPurchased == true && gunToBeEquipped == false))
         {
             //EquipGun(smallGun);
             if (equippedGun != null)
@@ -38,8 +41,10 @@ public class GunController : MonoBehaviour
             }
             smallGun.gameObject.SetActive(true);
             equippedGun = smallGun;
+            gunToBeEquipped = true;
+            Debug.Log(gunToBeEquipped);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && mediumGunPurchased == true)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && mediumGunPurchased == true || (mediumGunPurchased == true && gunToBeEquipped == false))
         {
             if (equippedGun != null)
             {
@@ -47,8 +52,9 @@ public class GunController : MonoBehaviour
             }
             mediumGun.gameObject.SetActive(true);
             equippedGun = mediumGun;
+            gunToBeEquipped = true;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && heavyGunPurchased == true)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && heavyGunPurchased == true || (heavyGunPurchased == true && gunToBeEquipped == false))
         {
             if (equippedGun != null)
             {
@@ -56,6 +62,7 @@ public class GunController : MonoBehaviour
             }
             heavyGun.gameObject.SetActive(true);
             equippedGun = heavyGun;
+            gunToBeEquipped = true;
         }
     }
     //Function used to equip a weapon passed in which uses the GunScript class. Instansiates it at the weaponHold GameObject

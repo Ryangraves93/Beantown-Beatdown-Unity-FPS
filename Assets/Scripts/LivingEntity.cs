@@ -11,7 +11,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     public float health;
 
     public bool dead;
-    public static int score = 200;
+    public static int score = 10;
 
     public event System.Action OnDeath;
 
@@ -22,7 +22,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     }
     public void Update()
     {
-        Debug.Log(score);
+      
     }
     //Passes in the damage variable into the TakeDamage method
     public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection) {

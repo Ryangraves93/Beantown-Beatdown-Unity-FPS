@@ -98,7 +98,6 @@ MonoBehaviour:
   startingHealth: 1
   health: 0
   dead: 0
-  score: 0
   agent: {fileID: -5718421401148015020}
   deathEffect: {fileID: 7144277882318014139, guid: 473504a98c044764d83afad91ab9532f,
     type: 3}
@@ -110,12 +109,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849736199912346}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.8646826
-  m_Height: 2.0323248
+  m_Height: 2.3042898
   m_Direction: 1
-  m_Center: {x: 0, y: 1.05, z: 0.026983708}
+  m_Center: {x: 0, y: 1.108618, z: 0.026983678}
 --- !u!195 &-5718421401148015020
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -125,7 +124,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1849736199912346}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.8646826
+  m_Radius: 2.22
   m_Speed: 8
   m_Acceleration: 20
   avoidancePriority: 50
@@ -135,7 +134,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.75
-  m_BaseOffset: 0
+  m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &661227945596128234

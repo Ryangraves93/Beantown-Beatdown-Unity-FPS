@@ -29,8 +29,11 @@ public class EnemySpawner : MonoBehaviour
 
     public event System.Action<int> OnNewWave;
 
+    public GunController playerGunController;
+
     private void Start()
     {
+        playerGunController = FindObjectOfType<GunController>();
         waveText = waveUI.GetComponentInChildren<Text>();
         StartCoroutine(StartGameText());
        
@@ -38,26 +41,27 @@ public class EnemySpawner : MonoBehaviour
     
     private void Update()
     {
-        if (startGameText == true)
+       
+        if (startGameText == true && playerGunController.gunToBeEquipped == true)
         {
+            StartCoroutine(timeBetweenRounds());
             NextWave();
+
         }
 
         if (enemiesRemainingToSpawn > 0 && Time.time > nextSpawnTime)
         {
             if (spawner1 == true)
             {
-                Debug.Log(spawner1 + "if statement");
                 spawnerLocation.Set(spawnPosition.position.x, spawnPosition.position.y, spawnPosition.position.z);
                 spawner1 = false;
              }
             else 
             {
-                Debug.Log(spawner1 + "else statement");
                 spawnerLocation.Set(spawnPosition2.position.x, spawnPosition2.position.y, spawnPosition2.position.z);
                 spawner1 = true;
             }
-            spawnerLocation.x += Random.Range(-5, 5);
+            spawnerLocation.x += Random.Range(-2, 2);
             enemiesRemainingToSpawn--;
             nextSpawnTime = Time.time + currentWave.timeBetweenSpawns;
             Enemy spawnedEnemy = Instantiate(enemy,spawnerLocation, Quaternion.identity) as Enemy;
@@ -96,13 +100,22 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator StartGameText()
     {
-        Debug.Log("Working");
-        waveUI.text = "Defend Beantown from the invaders!";
-        yield return new WaitForSeconds(3f);
+        waveUI.text = "Defend Beantown from waves of enemies";
+        yield return new WaitForSeconds(2f);
+        waveUI.text = "Keep out of range of the enemies";
+        yield return new WaitForSeconds(2f);
+        waveUI.text = "Buy a pistol from the shop and upgrade between rounds!";
+        yield return new WaitForSeconds(2f);
+        
         waveUI.text = "";
-        startGameText = true;
+       startGameText = true;
     }
 
+    IEnumerator timeBetweenRounds()
+    {
+        waveUI.text = "10 seconds before the next round!";
+        yield return new WaitForSeconds(10f);
+    }
     IEnumerator WaveUI(int waveNumber)
     {
         waveNumber = waveNumber + 1;

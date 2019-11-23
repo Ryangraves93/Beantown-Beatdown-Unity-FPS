@@ -9,6 +9,7 @@ TagManager:
   - tableUI
   - HeavyGun
   - MediumGun
+  - SmallGun
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Gun
   - MediumGun
   - HeavyGun
-  - 
+  - SmallGun
   - 
   - 
   - 

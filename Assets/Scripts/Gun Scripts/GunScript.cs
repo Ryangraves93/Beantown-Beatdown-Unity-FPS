@@ -20,7 +20,6 @@ public class GunScript : MonoBehaviour
     //Recoil Variable
     Vector3 recoilSmoothDampVelocity;
 
-    public bool hasBeenInstansiated = false;
 
     public void Start()
     {
@@ -29,8 +28,7 @@ public class GunScript : MonoBehaviour
     }
     public void Awake()
     {
-      
-    Debug.Log(hasBeenInstansiated + "This one idiot");
+
     }
 
     public void Update()

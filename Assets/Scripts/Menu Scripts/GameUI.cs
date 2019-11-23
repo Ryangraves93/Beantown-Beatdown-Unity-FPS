@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
     public Image FadePlan;
     public GameObject gameOverUI;
     public GunScript gunScript;
+    
 
     //Variables for HUD
     public TextMeshProUGUI playerHealth;
@@ -24,12 +25,13 @@ public class GameUI : MonoBehaviour
     void Start()
     {
         gunScript = GetComponent<GunScript>();
+    
         FindObjectOfType<Player>().OnDeath += OnGameOver;
     }
 
     private void Update()
     {
-        if (dead == true)
+        if (dead == true )
         {   
             if (Input.GetKeyDown(KeyCode.Space))//Responsible for resseting the game once the player has died
             {
@@ -70,8 +72,9 @@ public class GameUI : MonoBehaviour
         if (GunScript.FindObjectOfType<GunScript>() != null)
         {
             playerAmmo.text = "Ammo" + " - " + GunScript.FindObjectOfType<GunScript>().currentAmmo.ToString() + " / " + GunScript.FindObjectOfType<GunScript>().maxAmmo.ToString();
-            playerScore.text = "Score" + " - " + LivingEntity.score.ToString();
         }
+            playerScore.text = "Bean Money" + " - " + LivingEntity.score.ToString();
+        
     }
 
     public void StartNewGame()//Loads Main level scene

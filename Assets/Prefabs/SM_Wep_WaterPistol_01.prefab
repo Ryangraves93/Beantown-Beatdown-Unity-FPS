@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4764624344734074
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121525155587680}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000015641213, y: -0.000000024294222, z: -3.4000006}
+  m_LocalPosition: {x: 0.00000015641213, y: -0.000000024294222, z: -13.599992}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4616090700375240}
@@ -114,9 +114,9 @@ MonoBehaviour:
   msBetweenShots: 400
   muzzleVelocity: 60
   maxAmmo: 6
-  currentAmmo: -11
+  currentAmmo: -62
   reloadTime: 0.75
-  hasBeenInstansiated: 0
+  hasBeenInstansiated: 1
 --- !u!1 &1171266974439338
 GameObject:
   m_ObjectHideFlags: 0

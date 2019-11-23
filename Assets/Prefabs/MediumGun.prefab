@@ -184,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607291360844622}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000025271984, y: -0.0000000047486504, z: 0}
+  m_LocalPosition: {x: -0.00000025271984, y: -0.0000000047486504, z: -1.8000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4884914878476640}
@@ -272,7 +272,7 @@ MonoBehaviour:
   msBetweenShots: 150
   muzzleVelocity: 35
   maxAmmo: 34
-  currentAmmo: 0
+  currentAmmo: -9
   reloadTime: 1
   hasBeenInstansiated: 1
 --- !u!1 &1885017839708798

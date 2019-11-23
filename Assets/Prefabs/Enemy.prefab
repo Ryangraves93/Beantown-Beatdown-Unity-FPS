@@ -98,6 +98,7 @@ MonoBehaviour:
   startingHealth: 1
   health: 0
   dead: 0
+  score: 0
   agent: {fileID: -5718421401148015020}
   deathEffect: {fileID: 7144277882318014139, guid: 473504a98c044764d83afad91ab9532f,
     type: 3}
@@ -125,7 +126,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.8646826
-  m_Speed: 10
+  m_Speed: 8
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 720

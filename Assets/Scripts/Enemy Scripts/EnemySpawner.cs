@@ -116,11 +116,11 @@ public class EnemySpawner : MonoBehaviour
     {
         waveUI.gameObject.SetActive(true);
         waveUI.text = "Defend Beantown from waves of enemies";
-        yield return new WaitForSeconds(2f);
-        waveUI.text = "Keep out of range of the enemies";
-        yield return new WaitForSeconds(2f);
-        waveUI.text = "Buy a pistol from the shop and upgrade between rounds!";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
+        waveUI.text = "Keep out of range of the enemies to avoid attacks";
+        yield return new WaitForSeconds(3f);
+        waveUI.text = "Buy a pistol from the shop with your beans";
+        yield return new WaitForSeconds(3f);
 
         waveUI.gameObject.SetActive(false);
         startGameTextHasBeenPlayed = true;
@@ -128,10 +128,13 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator timeBetweenRounds()
     {
-        Debug.Log("Timebetween");
-        endRoundUI.text = timeBeforeRoundStarts.ToString() + " seconds before the next round!";
-        yield return new WaitForSeconds(timeBeforeRoundStarts);
-        endRoundUI.text = "";
+        
+        endRoundUI.gameObject.SetActive(true);
+        endRoundUI.text = timeBeforeRoundStarts.ToString() + " seconds before the next round starts";
+        yield return new WaitForSeconds(3f);
+        endRoundUI.text = "Prepare!";
+        yield return new WaitForSeconds(timeBeforeRoundStarts - 3);
+        endRoundUI.gameObject.SetActive(false);
 
         playerReady = true;
     }

@@ -270,7 +270,7 @@ MonoBehaviour:
   projectile: {fileID: -1886344540990227080, guid: 34bc59f716df8fe4d9c3807f7b21e3b7,
     type: 3}
   msBetweenShots: 150
-  muzzleVelocity: 20
+  muzzleVelocity: 35
   maxAmmo: 34
   currentAmmo: -9
   reloadTime: 1

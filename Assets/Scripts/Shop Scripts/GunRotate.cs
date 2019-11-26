@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunRotatoe : MonoBehaviour
+public class GunRotate : MonoBehaviour
 {
 
     float speed = 50.0f;

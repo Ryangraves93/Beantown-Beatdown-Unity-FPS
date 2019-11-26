@@ -12,7 +12,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public bool dead;
     
-    public static int score = 10;
+    public static int score = 400;
 
     public event System.Action OnDeath;
 

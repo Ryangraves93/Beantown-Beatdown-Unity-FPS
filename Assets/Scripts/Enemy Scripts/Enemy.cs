@@ -16,7 +16,7 @@ public class Enemy : LivingEntity
     public NavMeshAgent agent;
 
     //Variables used for enemy attacks
-    float attackDistanceThreshold = .5f;
+    float attackDistanceThreshold = .20f;
     float timeBetweenAttacks = 1;
     float damage = 1;
     float nextAttackTime;

@@ -11,7 +11,10 @@ public class EnemySpawner : MonoBehaviour
     public Enemy enemy;
 
     public TextMeshProUGUI waveUI;
+    public TextMeshProUGUI endRoundUI;
     Text waveText;
+
+    public float timeBeforeRoundStarts = 10f;
 
     public Transform spawnPosition;
     public Transform spawnPosition2;
@@ -24,8 +27,11 @@ public class EnemySpawner : MonoBehaviour
     int enemiesRemainingAlive;
     float nextSpawnTime;
 
+    public bool firstRoundFinished = false;
     bool spawner1 = true;
-    bool startGameText = false;
+    bool startGameTextHasBeenPlayed = false;
+    public bool playerReady = false;
+    
 
     public event System.Action<int> OnNewWave;
 
@@ -41,14 +47,10 @@ public class EnemySpawner : MonoBehaviour
     
     private void Update()
     {
-       
-        if (startGameText == true && playerGunController.gunToBeEquipped == true)
+        if ((playerReady == true) || (startGameTextHasBeenPlayed == true && playerGunController.gunToBeEquipped == true))
         {
-            StartCoroutine(timeBetweenRounds());
             NextWave();
-
         }
-
         if (enemiesRemainingToSpawn > 0 && Time.time > nextSpawnTime)
         {
             if (spawner1 == true)
@@ -76,15 +78,26 @@ public class EnemySpawner : MonoBehaviour
 
         if (enemiesRemainingAlive == 0)
         {
-            NextWave();
+            StartCoroutine(timeBetweenRounds());
+            Debug.Log("Cunttttt");
+            
         }
+        
+
+        
     }
 
     void NextWave()
     {
-        startGameText = false;
+        
+        startGameTextHasBeenPlayed = false;
+        if (firstRoundFinished == true)
+        {
+           
+        }
         StartCoroutine(WaveUI(currentWaveNumber));
         currentWaveNumber++;
+
         if (currentWaveNumber - 1 < waves.Length)
         {
             currentWave = waves[currentWaveNumber - 1];
@@ -97,31 +110,38 @@ public class EnemySpawner : MonoBehaviour
                 OnNewWave(currentWaveNumber);
             }
         }
+        playerReady = false;
     }
     IEnumerator StartGameText()
     {
+        waveUI.gameObject.SetActive(true);
         waveUI.text = "Defend Beantown from waves of enemies";
         yield return new WaitForSeconds(2f);
         waveUI.text = "Keep out of range of the enemies";
         yield return new WaitForSeconds(2f);
         waveUI.text = "Buy a pistol from the shop and upgrade between rounds!";
         yield return new WaitForSeconds(2f);
-        
-        waveUI.text = "";
-       startGameText = true;
+
+        waveUI.gameObject.SetActive(false);
+        startGameTextHasBeenPlayed = true;
     }
 
     IEnumerator timeBetweenRounds()
     {
-        waveUI.text = "10 seconds before the next round!";
-        yield return new WaitForSeconds(10f);
+        Debug.Log("Timebetween");
+        endRoundUI.text = timeBeforeRoundStarts.ToString() + " seconds before the next round!";
+        yield return new WaitForSeconds(timeBeforeRoundStarts);
+        endRoundUI.text = "";
+
+        playerReady = true;
     }
     IEnumerator WaveUI(int waveNumber)
     {
+        waveUI.gameObject.SetActive(true);
         waveNumber = waveNumber + 1;
         waveUI.text = "Wave Number - " + waveNumber.ToString();
         yield return new WaitForSeconds(2f);
-        waveUI.text = "";
+        waveUI.gameObject.SetActive(false);
     }
 
     [System.Serializable]

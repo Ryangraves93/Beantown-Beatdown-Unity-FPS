@@ -266,15 +266,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6a9ade8ea018b468e2be83c65aaca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzle: {fileID: 4550259107800822}
+  muzzle: {fileID: 4951183161209444872}
   projectile: {fileID: -1886344540990227080, guid: 34bc59f716df8fe4d9c3807f7b21e3b7,
     type: 3}
   msBetweenShots: 150
-  muzzleVelocity: 35
+  muzzleVelocity: 20
   maxAmmo: 34
   currentAmmo: -9
   reloadTime: 1
-  hasBeenInstansiated: 1
 --- !u!1 &1885017839708798
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752616225710523340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.0875, z: 0.474}
+  m_LocalPosition: {x: 0.0001, y: 0.0875, z: 0.4484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4550259107800822}

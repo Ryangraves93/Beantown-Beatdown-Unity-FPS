@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121525155587680}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000015641213, y: -0.000000024294222, z: -13.599992}
+  m_LocalPosition: {x: 0.00000015641213, y: -0.000000024294222, z: -24.600021}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4616090700375240}
@@ -114,9 +114,8 @@ MonoBehaviour:
   msBetweenShots: 400
   muzzleVelocity: 60
   maxAmmo: 6
-  currentAmmo: -62
+  currentAmmo: -117
   reloadTime: 0.75
-  hasBeenInstansiated: 1
 --- !u!1 &1171266974439338
 GameObject:
   m_ObjectHideFlags: 0

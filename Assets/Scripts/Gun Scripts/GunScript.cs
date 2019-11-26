@@ -23,14 +23,8 @@ public class GunScript : MonoBehaviour
 
     public void Start()
     {
-        
         currentAmmo = maxAmmo;//Set's maxAmmo on start
     }
-    public void Awake()
-    {
-
-    }
-
     public void Update()
     {
         //Debug.Log(hasBeenInstansiated);
@@ -46,7 +40,7 @@ public class GunScript : MonoBehaviour
     {
         if (isReloading)
             return;
-        if (Time.time > nextShotTime)
+        if (Time.time > nextShotTime)//Sets the time between shots and instantiates projects at the muzzle location
         {
             nextShotTime = Time.time + msBetweenShots / 1000;
             Projectile newProjectile = Instantiate(projectile, muzzle.position, muzzle.rotation) as Projectile;
@@ -56,8 +50,8 @@ public class GunScript : MonoBehaviour
         }
         
     }
-    //Passes in the reload time as the waitForSeconds in the Enumerator which halts a set time for player reloading
-     IEnumerator Reload()
+   
+     IEnumerator Reload() //Passes in the reload time as the waitForSeconds in the Enumerator which halts a set time for player reloading
     {
         isReloading = true;
         Debug.Log("reloaded");

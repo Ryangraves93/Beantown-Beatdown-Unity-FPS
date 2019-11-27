@@ -48,7 +48,7 @@ public class GameUI : MonoBehaviour
         gameOverUI.SetActive(true);
     }
     //Function for creating a fade effect when the player dies
-    IEnumerator Fade (Color from, Color to, float time)
+    public IEnumerator Fade (Color from, Color to, float time)
     {
         float speed = 1 / time;
         float percent = 0;

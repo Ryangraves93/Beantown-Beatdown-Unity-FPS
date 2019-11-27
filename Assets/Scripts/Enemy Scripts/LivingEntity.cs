@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //LivingEntity extends to the IDamageable interface which uses both TakeHit and TakeDamage functions
 public class LivingEntity : MonoBehaviour, IDamageable
@@ -9,10 +7,11 @@ public class LivingEntity : MonoBehaviour, IDamageable
     //Health Variables
     public float startingHealth;
     public float health;
+    int scoreFromKill = 1;
 
     public bool dead;
     
-    public static int score = 400;
+    public static int score = 1000;
 
     public event System.Action OnDeath;
 
@@ -35,7 +34,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         if (health <= 0 && !dead)
         {
           
-            Die(5);
+            Die(scoreFromKill);
         }
     }
     protected void Die(int newScore)//Method responsible for destroying gameObjects
@@ -49,6 +48,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         if (FindObjectOfType<Player>().dead)
         {
             transform.DetachChildren();//Neccesary so the camera does not get destory along with the gameObject
+
         }
         GameObject.Destroy(gameObject);
         score+=newScore;

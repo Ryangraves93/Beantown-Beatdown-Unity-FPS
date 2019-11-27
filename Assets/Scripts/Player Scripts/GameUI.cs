@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -12,8 +11,8 @@ public class GameUI : MonoBehaviour
     public Image FadePlan;
     public GameObject gameOverUI;
     public GunScript gunScript;
-    
 
+    
     //Variables for HUD
     
     public TextMeshProUGUI playerHealth;
@@ -39,10 +38,7 @@ public class GameUI : MonoBehaviour
                 StartNewGame();
             }  
         }
-      
-            playerUI();
-      
-
+        playerUI();     
     }
     //Set's the gameOverUi to true on death and starts the Courotine for the fade gameOver scene
     void OnGameOver()
@@ -69,16 +65,16 @@ public class GameUI : MonoBehaviour
     {
         if (dead == true)
         {
-            playerHealth.text = "";
-            playerAmmo.text = "";
-            //playerScore.text = "";
+            playerHealth.gameObject.SetActive(false);
+            playerAmmo.gameObject.SetActive(false);
+            playerScore.gameObject.SetActive(false);
         }
         playerHealth.text = "Health - "  + LivingEntity.FindObjectOfType<Player>().health.ToString() + " / " +LivingEntity.FindObjectOfType<Player>().startingHealth.ToString();
         if (GunScript.FindObjectOfType<GunScript>() != null)
         {
             playerAmmo.text = "Ammo" + " - " + GunScript.FindObjectOfType<GunScript>().currentAmmo.ToString() + " / " + GunScript.FindObjectOfType<GunScript>().maxAmmo.ToString();
         }
-            playerScore.text = "Bean Money" + " - " + LivingEntity.score.ToString();
+            playerScore.text = "Beans" + " - " + LivingEntity.score.ToString();
         
     }
 

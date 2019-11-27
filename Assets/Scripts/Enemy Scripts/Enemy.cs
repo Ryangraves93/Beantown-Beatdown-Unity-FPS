@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 
@@ -46,12 +45,8 @@ public class Enemy : LivingEntity
         }
     }
     //Sets attributes for enemies spawned so each wave can have enemies with different attributes
-    public void SetChracteristics(int hitsToKillPlayer, float enemyHealth)
+    public void SetChracteristics(float enemyHealth)
     {
-        if (hasTarget)
-        {
-            damage = hitsToKillPlayer;
-        }
         startingHealth = enemyHealth;
     }
     //Determines the point of contact for a collision and applies the death effect if enemies health drops lower than 0

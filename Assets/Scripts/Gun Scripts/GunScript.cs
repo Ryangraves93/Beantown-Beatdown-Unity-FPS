@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GunScript : MonoBehaviour
@@ -54,7 +53,6 @@ public class GunScript : MonoBehaviour
      IEnumerator Reload() //Passes in the reload time as the waitForSeconds in the Enumerator which halts a set time for player reloading
     {
         isReloading = true;
-        Debug.Log("reloaded");
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = maxAmmo;
         isReloading = false;

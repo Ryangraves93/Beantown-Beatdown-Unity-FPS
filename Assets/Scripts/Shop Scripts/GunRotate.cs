@@ -1,19 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GunRotate : MonoBehaviour
 {
 
     float speed = 50.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+   
+    void Update()//Rotates weapons in shop by the speed variable
     {
         transform.Rotate(Vector3.up * speed * Time.deltaTime);
     }

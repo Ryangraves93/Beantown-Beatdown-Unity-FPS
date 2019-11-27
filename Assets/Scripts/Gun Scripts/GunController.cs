@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
@@ -40,7 +38,6 @@ public class GunController : MonoBehaviour
             smallGun.gameObject.SetActive(true);
             equippedGun = smallGun;
             gunToBeEquipped = true;
-            Debug.Log(gunToBeEquipped);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && mediumGunPurchased == true || 
            (mediumGunPurchased == true && gunToBeEquipped == false))

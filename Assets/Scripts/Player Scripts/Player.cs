@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //The player class extends the LivingEntity class which allows it access to health variables and damage functions
 public class Player : LivingEntity
@@ -10,7 +8,7 @@ public class Player : LivingEntity
     GunController gunController;
 
     AudioSource shootSound;
-    // Start is called before the first frame update
+    
     protected override void Start()
     {
         base.Start();
@@ -21,15 +19,10 @@ public class Player : LivingEntity
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if ((Input.GetMouseButton(0) || Input.GetMouseButtonDown(0)) && gunController.gunToBeEquipped == true)
         {
-            //shootSound.Play();
+            shootSound.Play();
             gunController.Shoot();
-        }
-        RaycastHit hit;
-       Physics.Raycast(transform.position, transform.forward,out hit,distance, gunMask);
-        {
-            //Debug.Log(hit.distance + hit.collider.ToString());
         }
     }
 }

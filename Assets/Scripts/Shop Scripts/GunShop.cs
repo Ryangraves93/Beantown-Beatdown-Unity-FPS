@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 public class GunShop : MonoBehaviour
 {
@@ -67,7 +65,6 @@ public class GunShop : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Checks if the player has enough score to purchase and if he is within the collider
@@ -77,10 +74,9 @@ public class GunShop : MonoBehaviour
         }
     }
 
-    void purchaseWeapon()
+    void purchaseWeapon()// Determines which weapon is set to active according to the corresponding bool
     {
         gunController.gunToBeEquipped = false;
-        Debug.Log(gunController.gunToBeEquipped + "Guntobequ");
         if (smallGun == true)
         {
            
@@ -96,6 +92,7 @@ public class GunShop : MonoBehaviour
         { 
                 gunController.heavyGunPurchased = true;
         }
+
         //Sets the gun to purchased so it cannot be purchased again, destroys the game object and takes away the score
         purchased = true;
         purchaseText.SetActive(false);

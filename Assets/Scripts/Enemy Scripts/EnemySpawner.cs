@@ -1,14 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
-
+    //Enemy variables
     public Wave[] waves;
     public Enemy enemy;
+    //Audio Variables
+    public AudioSource gameSound;
 
     public TextMeshProUGUI waveUI;
     public TextMeshProUGUI endRoundUI;
@@ -68,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
             nextSpawnTime = Time.time + currentWave.timeBetweenSpawns;
             Enemy spawnedEnemy = Instantiate(enemy,spawnerLocation, Quaternion.identity) as Enemy;
             spawnedEnemy.OnDeath += OnEnemyDeath;
-            spawnedEnemy.SetChracteristics(currentWave.hitsToKillPlayer, currentWave.enemyHealth);
+            spawnedEnemy.SetChracteristics(currentWave.enemyHealth);
         }
     }
 
@@ -78,23 +80,24 @@ public class EnemySpawner : MonoBehaviour
 
         if (enemiesRemainingAlive == 0)
         {
-            StartCoroutine(timeBetweenRounds());
-            Debug.Log("Cunttttt");
-            
-        }
-        
-
-        
+            if (currentWaveNumber == waves.Length)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LivingEntity.score = 0;
+            }
+            else
+            {
+                StartCoroutine(timeBetweenRounds());
+            }
+        }     
     }
+
+   
 
     void NextWave()
     {
-        
+       
         startGameTextHasBeenPlayed = false;
-        if (firstRoundFinished == true)
-        {
-           
-        }
         StartCoroutine(WaveUI(currentWaveNumber));
         currentWaveNumber++;
 
@@ -110,6 +113,8 @@ public class EnemySpawner : MonoBehaviour
                 OnNewWave(currentWaveNumber);
             }
         }
+      
+       
         playerReady = false;
     }
     IEnumerator StartGameText()
@@ -117,15 +122,23 @@ public class EnemySpawner : MonoBehaviour
         waveUI.gameObject.SetActive(true);
         waveUI.text = "Defend Beantown from waves of enemies";
         yield return new WaitForSeconds(3f);
-        waveUI.text = "Keep out of range of the enemies to avoid attacks";
+        waveUI.text = "Kill enemies to earn beans and upgrade!";
         yield return new WaitForSeconds(3f);
-        waveUI.text = "Buy a pistol from the shop with your beans";
+        waveUI.text = "Get a pistol from the shop and defend yourself";
         yield return new WaitForSeconds(3f);
 
         waveUI.gameObject.SetActive(false);
         startGameTextHasBeenPlayed = true;
+        startAudio();
     }
 
+    void startAudio()
+    {
+        if (startGameTextHasBeenPlayed == true)
+        {
+            gameSound.Play();
+        }
+    }
     IEnumerator timeBetweenRounds()
     {
         
@@ -142,7 +155,14 @@ public class EnemySpawner : MonoBehaviour
     {
         waveUI.gameObject.SetActive(true);
         waveNumber = waveNumber + 1;
-        waveUI.text = "Wave Number - " + waveNumber.ToString();
+        if (currentWaveNumber == waves.Length - 1)
+        {
+            waveUI.text = "Final Wave";
+        }
+        else
+        {
+            waveUI.text = "Wave Number - " + waveNumber.ToString();
+        }
         yield return new WaitForSeconds(2f);
         waveUI.gameObject.SetActive(false);
     }
@@ -152,7 +172,7 @@ public class EnemySpawner : MonoBehaviour
     {
         public int enemyCount;
         public float timeBetweenSpawns;
-        public int hitsToKillPlayer;
+        //public int hitsToKillPlayer;
         public float enemyHealth;
 
     }

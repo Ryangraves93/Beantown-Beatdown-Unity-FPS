@@ -3684,7 +3684,6 @@ GameObject:
   m_Component:
   - component: {fileID: 631161227}
   - component: {fileID: 631161228}
-  - component: {fileID: 631161229}
   - component: {fileID: 631161232}
   - component: {fileID: 631161231}
   - component: {fileID: 631161230}
@@ -3728,25 +3727,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6780775, y: 2.4421473, z: 2.2170918}
   m_Center: {x: 0.5050433, y: 0.96505225, z: 0.29779106}
---- !u!114 &631161229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631161226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f993c832c8e9954cb1c970349741438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  purchaseText: {fileID: 0}
-  gun: {fileID: 2145567431}
-  gunScript: {fileID: 8792836115461942960, guid: f528363d2aaa5d748ab9fcd16b601236,
-    type: 3}
-  player: {fileID: 0}
-  gunValue: 35
-  gunController: {fileID: 0}
 --- !u!222 &631161230
 CanvasRenderer:
   m_ObjectHideFlags: 2
@@ -8243,7 +8223,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1446586052}
   - component: {fileID: 1446586053}
-  - component: {fileID: 1446586054}
   m_Layer: 15
   m_Name: HeavyGun
   m_TagString: HeavyGun
@@ -8284,25 +8263,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.9756346, y: 2.2917328, z: 3.9962072}
   m_Center: {x: 0.40614444, y: 1.4422412, z: 0.6793382}
---- !u!114 &1446586054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446586051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f993c832c8e9954cb1c970349741438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  purchaseText: {fileID: 0}
-  gun: {fileID: 1161621147}
-  gunScript: {fileID: -8104290717243904831, guid: 787a31f2409a3f64c987faeb2a72ab86,
-    type: 3}
-  player: {fileID: 0}
-  gunValue: 50
-  gunController: {fileID: 0}
 --- !u!1 &1449957293
 GameObject:
   m_ObjectHideFlags: 0
@@ -9651,7 +9611,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1722234295}
   - component: {fileID: 1722234296}
-  - component: {fileID: 1722234297}
   m_Layer: 16
   m_Name: SmallGun
   m_TagString: SmallGun
@@ -9692,25 +9651,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.737456, y: 2.6293833, z: 2.0852385}
   m_Center: {x: 0.36994088, y: 0.58800584, z: -0.039756026}
---- !u!114 &1722234297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722234294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f993c832c8e9954cb1c970349741438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  purchaseText: {fileID: 0}
-  gun: {fileID: 1434758492}
-  gunScript: {fileID: -8593137033807059364, guid: c6865c562fd3f2841a92dc0cbbd6b4b4,
-    type: 3}
-  player: {fileID: 0}
-  gunValue: 10
-  gunController: {fileID: 0}
 --- !u!1 &1740367652
 GameObject:
   m_ObjectHideFlags: 0

@@ -69,12 +69,12 @@ public class GameUI : MonoBehaviour
             playerAmmo.gameObject.SetActive(false);
             playerScore.gameObject.SetActive(false);
         }
-        playerHealth.text = "Health - "  + LivingEntity.FindObjectOfType<Player>().health.ToString() + " / " +LivingEntity.FindObjectOfType<Player>().startingHealth.ToString();
+        playerHealth.text = "Health  "  + LivingEntity.FindObjectOfType<Player>().health.ToString() + " / " +LivingEntity.FindObjectOfType<Player>().startingHealth.ToString();
         if (GunScript.FindObjectOfType<GunScript>() != null)
         {
             playerAmmo.text = "Ammo" + " - " + GunScript.FindObjectOfType<GunScript>().currentAmmo.ToString() + " / " + GunScript.FindObjectOfType<GunScript>().maxAmmo.ToString();
         }
-            playerScore.text = "Beans" + " - " + LivingEntity.score.ToString();
+            playerScore.text = "Beans" + "   " + LivingEntity.score.ToString();
         
     }
 

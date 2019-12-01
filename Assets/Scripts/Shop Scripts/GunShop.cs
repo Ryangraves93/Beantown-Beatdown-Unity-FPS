@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using System.Collections;
 public class GunShop : MonoBehaviour
 {
     //Reference variables for guns
@@ -26,6 +27,7 @@ public class GunShop : MonoBehaviour
     {
         gunController = FindObjectOfType<GunController>();
         gunScript = FindObjectOfType<GunScript>();
+        GetComponent<TextMeshPro>().alignment = TextAlignmentOptions.Center;
     }
 
     private void OnTriggerEnter(Collider c)//Determines which collider the player is in and acts accordingly
@@ -37,17 +39,17 @@ public class GunShop : MonoBehaviour
         }
         if (gameObject.gameObject.CompareTag("SmallGun"))
         {
-            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase small gun - " + " " + gunValue; 
+            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase small gun - " + gunValue + "\n " + "    Press E to buy"; 
             smallGun = true;
         }
         if (gameObject.gameObject.CompareTag("MediumGun"))
         {
-            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase Medium gun -" + " " + gunValue;
+            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase Medium gun -" + " " + gunValue + "\n " + "    Press E to buy";
             mediumGun = true;
         }
         if (gameObject.gameObject.CompareTag("HeavyGun"))
         {
-            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase Heavy gun - " + " " + gunValue;
+            purchaseText.GetComponent<TextMeshProUGUI>().text = "Purchase Heavy gun - " + " " + gunValue + "\n " + "    Press E to buy";
             heavyGun = true;
         
         }
